@@ -148,6 +148,7 @@ const rules = {
     // для реализации функций поиска в приложениях
     searchMultipleFields: (searchKey, searchFields, caseSensitive = false) => (key, sourceValue, targetValue, source, target) => {
         // Применять это правило только при обработке ключа поиска
+       
         if (key !== searchKey) {
             return { continue: true };
         }
@@ -225,6 +226,8 @@ function compare(source, target, rulesList) {
         return false;
     }
 
+    
+
     // Правила должны быть предоставлены
     // Подробнее: проверка входных параметров - хорошая практика программирования
     if (!Array.isArray(rulesList) || rulesList.length === 0) {
@@ -242,6 +245,7 @@ function compare(source, target, rulesList) {
             let ruleResult = null;
 
             for (const rule of rulesList) {
+                console.log(source, target,rulesList)
                 const ruleOutput = rule(key, sourceValue, targetValue, source, target);
 
                 // Проверяем, нужно ли пропустить это свойство
@@ -291,6 +295,7 @@ function compare(source, target, rulesList) {
  * повторного определения.
  */
 function createComparison(ruleNames, customRules = []) {
+
     return (source, target) => {
         const rulesList = [
             ...ruleNames.map(ruleName => {
