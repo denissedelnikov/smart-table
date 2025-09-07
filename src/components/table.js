@@ -45,18 +45,18 @@ export function initTable(settings, onAction) {
     const nextRows = data.map((item) => {
       const row = cloneTemplate(rowTemplate);
       Object.keys(item).forEach((key) => {
-            const element = row.elements[key]; // получаем элемент по имени поля
-            if (!element) return; // если такого элемента нет, пропускаем
+        const element = row.elements[key]; // получаем элемент по имени поля
+        if (!element) return; // если такого элемента нет, пропускаем
 
-            // присваиваем значение
-            const tag = element.tagName.toLowerCase();
-            if (tag === 'input' || tag === 'select' || tag === 'textarea') {
-                element.value = item[key]; 
-            } else {
-                element.textContent = item[key]; 
-            }
-        });
-        return row.container;
+        // присваиваем значение
+        const tag = element.tagName.toLowerCase();
+        if (tag === "input" || tag === "select" || tag === "textarea") {
+          element.value = item[key];
+        } else {
+          element.textContent = item[key];
+        }
+      });
+      return row.container;
     });
 
     root.elements.rows.replaceChildren(...nextRows);

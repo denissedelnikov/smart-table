@@ -1,4 +1,3 @@
-
 export function initFiltering(elements) {
   const updateIndexes = (elements, indexes) => {
     Object.keys(indexes).forEach((elementName) => {
@@ -15,14 +14,16 @@ export function initFiltering(elements) {
 
   const applyFiltering = (query, state, action) => {
     // код с обработкой очистки поля
-        if (action && action.name === 'clear') {
-        const fieldName = action.dataset.field; 
-        const fieldElement = action.parentElement.querySelector(`[name="${fieldName}"]`);
+    if (action && action.name === "clear") {
+      const fieldName = action.dataset.field;
+      const fieldElement = action.parentElement.querySelector(
+        `[name="${fieldName}"]`
+      );
 
-        if (fieldElement) {
-            fieldElement.value = ''; 
-            state[fieldName] = '';   
-        }
+      if (fieldElement) {
+        fieldElement.value = "";
+        state[fieldName] = "";
+      }
     }
     // @todo: #4.5 — отфильтровать данные, используя компаратор
     const filter = {};
