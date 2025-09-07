@@ -10,7 +10,6 @@ import { cloneTemplate } from "../lib/utils.js";
 export function initTable(settings, onAction) {
   const { tableTemplate, rowTemplate, before, after } = settings;
   const root = cloneTemplate(tableTemplate);
-  console.log(root);
   // @todo: #1.2 —  вывести дополнительные шаблоны до и после таблицы
   if (before) {
     before.reverse().forEach((subName) => {
