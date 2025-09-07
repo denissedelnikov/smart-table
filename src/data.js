@@ -28,7 +28,7 @@ export function initData() {
     }
 
    const getRecords = async (query, isUpdated = false) => {
-        const qs = new URLSearchParams(query); // преобразуем объект параметров в SearchParams объект, представляющий query часть url
+        const qs = new URLSearchParams(query); // преобразуем объект параметров в SesarchParams объект, представляющий query часть url
         const nextQuery = qs.toString(); // и приводим к строковому виду
 
         if (lastQuery === nextQuery && !isUpdated) { // isUpdated параметр нужен, чтобы иметь возможность делать запрос без кеша
